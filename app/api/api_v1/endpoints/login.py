@@ -1,28 +1,24 @@
 from fastapi import APIRouter, HTTPException, Depends
 from fastapi.security import OAuth2PasswordRequestForm
 
-from datetime import datetime, timedelta
+from datetime import timedelta
 
 from app import schemas
 from app.core import security
 from app.core.config import settings
-from app.documents.users.user import UsersDocument, UserCreateDocument
+from app.documents.users.user import UsersDocument
 
-from typing import List
-from beanie import PydanticObjectId
-from bson import ObjectId
 
 login_router = APIRouter()
 
+
 @login_router.post("/login/access-token", response_model=schemas.Token)
-async def login_access_token(
-    form_data: OAuth2PasswordRequestForm = Depends()
-):
+async def login_access_token(form_data: OAuth2PasswordRequestForm = Depends()):
     """
     OAuth2 compatible token login, get an access token for future requests
     """
 
-    user = await UsersDocument.find_one({"nm_email": form_data.username})    
+    user = await UsersDocument.find_one({"nm_email": form_data.username})
     if not user or not security.verify_password(form_data.password, user.nm_password):
         raise HTTPException(status_code=400, detail="Incorrect email or password")
 

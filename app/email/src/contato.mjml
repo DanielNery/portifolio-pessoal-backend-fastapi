@@ -1,0 +1,14 @@
+<mjml>
+  <mj-body background-color="#fff">
+    <mj-section>
+      <mj-column>
+        <mj-divider border-color="#555"></mj-divider>
+        <mj-text font-size="20px" color="#555" font-family="helvetica">{{ project_name }} - Requisição de Contato</mj-text>
+        <mj-text font-size="16px" color="#555">Recebemos uma requisição de contato do {{ username }}
+          com email {{ email }}</mj-text>
+        <mj-text font-size="16px" color="#555">{{ username }} deixou a seguinte mensagem:</mj-text>
+        <mj-text padding="50px 0px" >{{ message }}</mj-button>
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>
