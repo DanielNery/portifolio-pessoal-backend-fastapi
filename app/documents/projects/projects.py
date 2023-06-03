@@ -5,6 +5,7 @@ from pydantic import Field
 
 class ProjectsDocument(Document):
     nm_title: str = ""
+    nm_type: str = ""
     nm_description: str = ""
     nm_image: str = ""
     is_active: bool = False
@@ -18,15 +19,17 @@ class ProjectsDocument(Document):
             "nm_title": "A sample content",
             "nm_image": "A sample content",
             "nm_description": "A sample content",
+            "nm_type": "A sample content",
             "is_active": True,
             "date_created": datetime.now(),
         }
 
 
 class ProjectsCreateDocument(Document):
-    nm_year: str = Field()
     nm_title: str = Field()
     nm_description: str = Field()
+    nm_type: str = Field()
+    nm_image: str = Field()
     is_active: bool = False
     date_created: datetime = datetime.now()
 
@@ -35,7 +38,7 @@ class ProjectsCreateDocument(Document):
 
     class Config:
         schema_extra = {
-            "nm_year": "2023",
+            "nm_type": "Teste",
             "nm_title": "A sample content",
             "nm_description": "A sample content",
             "is_active": True,
