@@ -37,5 +37,5 @@ api_router.include_router(
 )
 
 api_router.include_router(
-    knowledges.knowledge_router, prefix="/knowledge", tags=["knowledges"]
+    knowledges.knowledge_router, prefix="/knowledges", tags=["knowledges"]
 )

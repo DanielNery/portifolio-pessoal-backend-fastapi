@@ -24,9 +24,7 @@ async def create_project(
 
 
 @project_router.get("/", status_code=200)
-async def retrieve_projects(
-    current_user: UsersDocument = Depends(get_current_active_user),
-) -> List[ProjectsDocument]:
+async def retrieve_projects() -> List[ProjectsDocument]:
     projects = await ProjectsDocument.find_all(limit=1000).to_list()
     return projects
 

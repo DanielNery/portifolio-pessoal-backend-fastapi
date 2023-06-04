@@ -24,9 +24,7 @@ async def create_knowledge(
 
 
 @knowledge_router.get("/", status_code=200)
-async def retrieve_knowledges(
-    current_user: UsersDocument = Depends(get_current_active_user),
-) -> List[KnowledgesDocument]:
+async def retrieve_knowledges() -> List[KnowledgesDocument]:
     knowledges = await KnowledgesDocument.find_all(limit=1000).to_list()
     return knowledges
 

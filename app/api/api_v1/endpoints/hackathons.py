@@ -24,9 +24,7 @@ async def create_hackathon(
 
 
 @hackathon_router.get("/", status_code=200)
-async def retrieve_hackathons(
-    current_user: UsersDocument = Depends(get_current_active_user),
-) -> List[HackathonsDocument]:
+async def retrieve_hackathons() -> List[HackathonsDocument]:
     hackathons = await HackathonsDocument.find_all(limit=1000).to_list()
     return hackathons
 

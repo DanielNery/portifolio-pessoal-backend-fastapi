@@ -24,9 +24,7 @@ async def create_experience(
 
 
 @experience_router.get("/", status_code=200)
-async def retrieve_experiences(
-    current_user: UsersDocument = Depends(get_current_active_user),
-) -> List[ExperiencesDocument]:
+async def retrieve_experiences() -> List[ExperiencesDocument]:
     experiences = await ExperiencesDocument.find_all(limit=1000).to_list()
     return experiences
 
