@@ -38,10 +38,10 @@ async def retrieve_bootcamp(bootcamp_id: PydanticObjectId) -> BootcampsBase:
 
 
 @bootcamp_router.delete("/{bootcamp_id}", status_code=204)
-async def delete_bootcamp(bootcamp_id: PydanticObjectId) -> BootcampsBase:
+async def delete_bootcamp(bootcamp_id: PydanticObjectId):
     bootcamp = await BootcampsDocument.get(bootcamp_id)
     await bootcamp.delete()
-    return bootcamp
+    # Não retorna nada
 
 
 # @bootcamp_router.put("/{bootcamp_id}", status_code=200)

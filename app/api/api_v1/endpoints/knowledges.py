@@ -35,7 +35,7 @@ async def retrieve_knowledge(knowledge_id: PydanticObjectId) -> KnowledgesBase:
     return knowledge
 
 
-@knowledge_router.delete("/{knowledge_id}", status_code=204)
+@knowledge_router.delete("/{knowledge_id}", status_code=200)
 async def delete_knowledge(knowledge_id: PydanticObjectId) -> KnowledgesBase:
     knowledge = await KnowledgesDocument.get(knowledge_id)
     await knowledge.delete()

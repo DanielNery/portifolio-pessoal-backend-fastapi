@@ -38,10 +38,10 @@ async def retrieve_course(course_id: PydanticObjectId) -> CoursesBase:
 
 
 @course_router.delete("/{course_id}", status_code=204)
-async def delete_course(course_id: PydanticObjectId) -> CoursesBase:
+async def delete_course(course_id: PydanticObjectId):
     course = await CoursesDocument.get(course_id)
     await course.delete()
-    return course
+    # Não retorna nada
 
 
 # @course_router.put("/{course_id}", status_code=200)

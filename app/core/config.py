@@ -1,7 +1,8 @@
 import os
 import secrets
 
-from pydantic import AnyHttpUrl, BaseSettings, EmailStr, validator
+from pydantic_settings import BaseSettings
+from pydantic import AnyHttpUrl, EmailStr, validator
 from typing import List, Optional, Dict, Any
 
 
@@ -18,8 +19,8 @@ class Settings(BaseSettings):
     SECRET_KEY: str = secrets.token_urlsafe(32)
     MONGODB_URL: str = os.environ.get("MONGODB_URL", "mongodb://localhost:27017")
 
-    SMTP_TLS: bool = os.environ.get("SMTP_TLS")
-    SMTP_SSL: bool = os.environ.get("SMTP_SSL")
+    SMTP_TLS: bool = False
+    SMTP_SSL: bool = False
     SMTP_PORT: Optional[int] = os.environ.get("SMTP_PORT")
     SMTP_HOST: Optional[str] = os.environ.get("SMTP_HOST")
     SMTP_USER: Optional[str] = os.environ.get("SMTP_USER")

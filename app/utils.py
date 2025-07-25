@@ -60,7 +60,7 @@ def send_test_email(email_to: str) -> None:
     )
 
 
-def send_contact_email(email_to: str, name: str, message: str, email: str) -> None:
+def send_contact_email(email_to: str, name: str, message: str, email: str, utm: str = None) -> None:
     project_name = settings.PROJECT_NAME
     subject = f"{project_name} - Contato solicitado por {name}"
     with open(Path(settings.EMAIL_TEMPLATES_DIR) / "contato.html") as f:
@@ -75,6 +75,7 @@ def send_contact_email(email_to: str, name: str, message: str, email: str) -> No
             "username": name,
             "email": email,
             "message": message,
+            "utm": utm,
         },
     )
 

@@ -19,6 +19,7 @@ def contact_form(email_contato: EmailContatoSchema, email_to: str) -> Any:
         name=email_contato.name,
         message=email_contato.message,
         email=email_contato.email,
+        utm=email_contato.utm,
     )
     return {
         "msg": "Email de contato enviado com sucesso, retornarei no prazo de 48 horas!"

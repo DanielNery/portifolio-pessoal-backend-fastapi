@@ -35,7 +35,7 @@ async def retrieve_hackathon(hackathon_id: PydanticObjectId) -> HackathonsBase:
     return hackathon
 
 
-@hackathon_router.delete("/{hackathon_id}", status_code=204)
+@hackathon_router.delete("/{hackathon_id}", status_code=200)
 async def delete_hackathon(hackathon_id: PydanticObjectId) -> HackathonsBase:
     hackathon = await HackathonsDocument.get(hackathon_id)
     await hackathon.delete()

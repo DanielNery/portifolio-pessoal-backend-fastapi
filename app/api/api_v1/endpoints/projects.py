@@ -36,10 +36,10 @@ async def retrieve_project(project_id: PydanticObjectId) -> ProjectsBase:
 
 
 @project_router.delete("/{project_id}", status_code=204)
-async def delete_project(project_id: PydanticObjectId) -> ProjectsBase:
+async def delete_project(project_id: PydanticObjectId):
     project = await ProjectsDocument.get(project_id)
     await project.delete()
-    return project
+    # Não retorna nada
 
 
 # @project_router.put("/{project_id}", status_code=200)

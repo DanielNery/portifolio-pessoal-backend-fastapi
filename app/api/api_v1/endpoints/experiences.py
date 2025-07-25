@@ -36,10 +36,10 @@ async def retrieve_experience(experience_id: PydanticObjectId) -> ExperienceBase
 
 
 @experience_router.delete("/{experience_id}", status_code=204)
-async def delete_experience(experience_id: PydanticObjectId) -> ExperienceBase:
+async def delete_experience(experience_id: PydanticObjectId):
     experience = await ExperiencesDocument.get(experience_id)
     await experience.delete()
-    return experience
+    # Não retorna nada
 
 
 # @experience_router.put("/{experience_id}", status_code=200)

@@ -130,6 +130,16 @@
                                         <td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;">
                                             <div
                                                 style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:16px;line-height:1;text-align:left;color:#555555;">
+                                                {% if utm %}
+                                                <strong>Origem do contato (UTM):</strong> {{ utm }}<br/>
+                                                {% endif %}
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td align="left" style="font-size:0px;padding:10px 25px;word-break:break-word;">
+                                            <div
+                                                style="font-family:Ubuntu, Helvetica, Arial, sans-serif;font-size:16px;line-height:1;text-align:left;color:#555555;">
                                                 {{ username }} deixou a seguinte mensagem:
                                                 
                                             </div>
