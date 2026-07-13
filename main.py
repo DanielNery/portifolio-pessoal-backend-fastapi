@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from starlette.middleware.cors import CORSMiddleware
+from mangum import Mangum
 
 from app.api.api_v1.api import api_router
 from app.database.session import init_db
@@ -27,3 +28,5 @@ async def connect():
     await init_db()
 
 app.include_router(api_router, prefix=settings.API_V1_STR)
+
+handler = Mangum(app)
