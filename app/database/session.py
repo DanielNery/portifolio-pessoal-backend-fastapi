@@ -20,6 +20,7 @@ from app.documents.knowledges.knowledges import (
 )
 from app.documents.projects.projects import ProjectsCreateDocument, ProjectsDocument
 from app.documents.health.health import HealthCreateDocument
+from app.documents.tracking.tracking import TrackingDocument
 
 from app.core.config import settings
 
@@ -39,6 +40,7 @@ documents = [
     ProjectsCreateDocument,
     ProjectsDocument,
     HealthCreateDocument,
+    TrackingDocument,
 ]
 
 
