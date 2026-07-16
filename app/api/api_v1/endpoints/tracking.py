@@ -13,7 +13,7 @@ def _extract_ip(request: Request) -> str:
     return ""
 
 
-@tracking_router.post("/", status_code=201)
+@tracking_router.post("", status_code=201)
 async def register_access(payload: TrackingDocument, request: Request):
     payload.ip_client = _extract_ip(request)
     payload.user_agent = request.headers.get("user-agent", payload.user_agent)

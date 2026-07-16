@@ -5,10 +5,15 @@ from app.documents.health.health import HealthCreateDocument
 health_router = APIRouter()
 
 
-@health_router.post("/", status_code=201)
+@health_router.post("", status_code=201)
 async def create_health(health: HealthCreateDocument, request: Request):
-    health.ip_client = request.client[0]
-    health.port_client = request.client[1]
+    forwarded_for = request.headers.get("x-forwarded-for")
+    if forwarded_for:
+        health.ip_client = forwarded_for.split(",")[0].strip()
+    elif request.client:
+        health.ip_client = request.client.host
+        health.port_client = str(request.client.port)
+
     health.headers_client = [
         {info[0].decode("ascii"): info[1].decode("ascii")}
         for info in request.headers.raw

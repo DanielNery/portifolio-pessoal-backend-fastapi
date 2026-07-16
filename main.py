@@ -29,4 +29,4 @@ async def connect():
 
 app.include_router(api_router, prefix=settings.API_V1_STR)
 
-handler = Mangum(app, api_gateway_base_path="/api")
+handler = Mangum(app)
