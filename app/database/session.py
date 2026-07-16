@@ -45,5 +45,8 @@ documents = [
 
 
 async def init_db():
-    client = motor.motor_asyncio.AsyncIOMotorClient(settings.MONGODB_URL)
+    client = motor.motor_asyncio.AsyncIOMotorClient(
+        settings.MONGODB_URL,
+        serverSelectionTimeoutMS=5000,
+    )
     await beanie.init_beanie(database=client.portifolio, document_models=documents)

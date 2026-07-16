@@ -35,7 +35,9 @@ class Settings(BaseSettings):
         return v
 
     EMAIL_RESET_TOKEN_EXPIRE_HOURS: int = 48
-    EMAIL_TEMPLATES_DIR: str = os.environ.get("EMAIL_TEMPLATES_PATH")
+    EMAIL_TEMPLATES_DIR: str = os.environ.get(
+        "EMAIL_TEMPLATES_PATH", "app/email/templates"
+    )
     EMAILS_ENABLED: bool = False
 
     @validator("EMAILS_ENABLED", pre=True)

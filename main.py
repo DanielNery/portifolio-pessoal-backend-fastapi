@@ -6,6 +6,7 @@ from app.api.api_v1.api import api_router
 from app.database.session import init_db
 from app.core.config import settings
 
+import logging
 import tracemalloc
 tracemalloc.start()
 
@@ -25,7 +26,11 @@ app.add_middleware(
 
 @app.on_event("startup")
 async def connect():
-    await init_db()
+    try:
+        await init_db()
+    except Exception:
+        logging.exception("Failed to initialize MongoDB connection")
+        raise
 
 app.include_router(api_router, prefix=settings.API_V1_STR)
 
