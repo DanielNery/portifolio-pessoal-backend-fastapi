@@ -16,7 +16,7 @@ class ProjectsDocument(Document):
         name = "projects"
 
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "nm_title": "A sample content",
             "nm_image": "A sample content",
             "nm_description": "A sample content",
@@ -40,7 +40,7 @@ class ProjectsCreateDocument(Document):
         name = "projects"
 
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "nm_type": "Teste",
             "nm_title": "A sample content",
             "nm_description": "A sample content",

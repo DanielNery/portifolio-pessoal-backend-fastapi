@@ -16,7 +16,7 @@ class KnowledgesDocument(Document):
         name = "knowledges"
 
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "nm_certificado": "teste",
             "nm_title": "A sample content",
             "nm_description": "A sample content",
@@ -40,7 +40,7 @@ class KnowledgesCreateDocument(Document):
         name = "knowledges"
 
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "nm_certificado": "teste",
             "nm_title": "A sample content",
             "nm_description": "A sample content",

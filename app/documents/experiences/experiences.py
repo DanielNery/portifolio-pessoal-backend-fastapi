@@ -14,7 +14,7 @@ class ExperiencesDocument(Document):
         name = "experiences"
 
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "nm_year": "2023",
             "nm_title": "A sample content",
             "nm_description": "A sample content",
@@ -34,7 +34,7 @@ class ExperiencesCreateDocument(Document):
         name = "experiences"
 
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "nm_year": "2023",
             "nm_title": "A sample content",
             "nm_description": "A sample content",

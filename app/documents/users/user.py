@@ -16,7 +16,7 @@ class UsersDocument(Document):
         name = "users"
 
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "nm_name": "A",
             "nm_email": "A sample content",
             "nm_password": "A sample content",
@@ -37,7 +37,7 @@ class UserCreateDocument(Document):
         name = "users"
 
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "nm_name": "A",
             "nm_email": "A sample content",
             "nm_password": "A sample content",

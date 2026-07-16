@@ -15,7 +15,7 @@ class HackathonsDocument(Document):
         name = "hackathons"
 
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "nm_certificado": "teste",
             "nm_title": "A sample content",
             "nm_description": "A sample content",
@@ -37,7 +37,7 @@ class HackathonsCreateDocument(Document):
         name = "hackathons"
 
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "nm_certificado": "teste",
             "nm_title": "A sample content",
             "nm_description": "A sample content",
